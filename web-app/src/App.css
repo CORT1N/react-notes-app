@@ -23,6 +23,10 @@
   align-items: center;
 }
 
+.Note-list{
+  list-style-type: none;
+}
+
 .Note-link {
   display: flex;
   flex-direction: column;
@@ -31,7 +35,6 @@
   color: inherit;
   text-decoration: inherit;
   font-weight: bold;
-  border-bottom: 1px solid grey;
 }
 
 .Note-link.active {
@@ -48,6 +51,7 @@
   height: 40px;
   font-size: 24px;
   background-color: rgb(44, 51, 56);
+  border: 0;
 }
 
 .Temperature {
