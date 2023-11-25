@@ -1,6 +1,8 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Navigate} from 'react-router-dom';
+import Note from './Components/Note';
+import Loader from './Components/Loader';
 
 //  CYCLE DE VIE du composant App:
 //  1. rendu initial (avec les valeurs d'état initiales)
@@ -38,20 +40,35 @@ function App() {
   return (
     <BrowserRouter>
       <aside className='Side'>
-        <button onClick={appendNewNote} className='Button-create-note'>+</button>
         {notes !== null ? (
-          <ol className='Note-list'>
-            {notes.map((note) => (
-              <li key={note.id}>
-                <Link to={"/notes/"+note.id} className='Note-link'>
-                  {note.title}
-                </Link>
-              </li>
-            ))}
-          </ol>
-        ) : null}
+          <>
+            <button onClick={appendNewNote} className='Button Button-create-note'>+</button>
+            <ol className='Note-list'>
+              {notes.map((note) => (
+                <li key={note.id}>
+                  <Link to={"/notes/"+note.id} className='Note-link'>
+                    {note.title}
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          </>
+        ) : <Loader />}
       </aside>
-      <main className='Main'></main>
+      <main className='Main'>
+        <Routes>
+          <Route path="/" element="Sélectionner une note" />
+          <Route
+            path="/notes/:id" 
+            element={
+              <Note 
+                notes={notes}
+              />
+            }
+          />
+          <Route path="*" element={<Navigate to="/"/>} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 
