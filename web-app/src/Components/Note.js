@@ -27,7 +27,8 @@ function Note({notes, onSaveReFetch}){
 
     useEffect(() => {
         setEditableNote(note);
-    }, [id, note]);
+        setIsSaved(false);
+    }, [id]);
 
     if(!editableNote){
         return(
