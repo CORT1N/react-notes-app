@@ -9,10 +9,10 @@ function Note({notes, onSaveReFetch}){
     const note = notes ? notes.find(note => note.id === parseInt(id)) : null;
     const [editableNote, setEditableNote] = useState(note);
     const [isSaved, setIsSaved] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isSaving, setIsSaving] = useState(false);
 
     async function saveNote(){
-        setIsLoading(true);
+        setIsSaving(true);
         const response = await fetch('/notes/'+id, {
             method: "PUT",
             body: JSON.stringify(editableNote),
@@ -21,7 +21,7 @@ function Note({notes, onSaveReFetch}){
             },
         });
         await onSaveReFetch();
-        setIsLoading(false);
+        setIsSaving(false);
         setIsSaved(true);
     }
 
@@ -42,7 +42,7 @@ function Note({notes, onSaveReFetch}){
         <textarea className="Note-editable Note-content" value={editableNote.content} onChange={(event) => {setEditableNote({...editableNote, content: event.target.value}); setIsSaved(false);}}/>
         <div className="Note-actions">
             <button className="Button">Enregistrer</button>
-            { isLoading ? <MiniLoader /> : isSaved ? <div>Enregistré</div> : null}
+            { isSaving ? <MiniLoader /> : isSaved ? <div>Enregistré</div> : null}
         </div>
         </form>
     );
