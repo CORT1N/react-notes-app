@@ -56,19 +56,21 @@ function App() {
         ) : <Loader />}
       </aside>
       <main className='Main'>
-        <Routes>
-          <Route path="/" element="Sélectionner une note" />
-          <Route
-            path="/notes/:id" 
-            element={
-              <Note 
-                notes={notes}
-                onSaveReFetch={fetchNotes}
-              />
-            }
-          />
-          <Route path="*" element={<Navigate to="/"/>} />
-        </Routes>
+        {notes !== null ? (
+          <Routes>
+            <Route path="/" element="Sélectionner une note" />
+            <Route
+              path="/notes/:id" 
+              element={
+                <Note 
+                  notes={notes}
+                  onSaveReFetch={fetchNotes}
+                />
+              }
+            />
+            <Route path="*" element={<Navigate to="/"/>} />
+          </Routes>
+        ) : <Loader />}
       </main>
     </BrowserRouter>
   );

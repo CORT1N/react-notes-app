@@ -3,12 +3,17 @@
     {
       "id": 1,
       "title": "Initiation à React",
-      "content": "Lorem ipsum…aaa"
+      "content": "Lorem ipsum…"
     },
     {
       "id": 2,
       "title": "Utilisation de json-server",
       "content": "Bla bla"
+    },
+    {
+      "title": "Nouvelle note",
+      "content": "bonjour",
+      "id": 3
     }
   ],
   "profile": {

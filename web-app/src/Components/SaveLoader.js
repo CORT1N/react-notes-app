@@ -1,9 +1,9 @@
-import "./MiniLoader.css";
+import "./SaveLoader.css";
 
-function MiniLoader(){
+function SaveLoader(){
     return(
         <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
     );
 }
 
-export default MiniLoader;
+export default SaveLoader;
