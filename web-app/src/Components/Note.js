@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import './Note.css';
 import SaveLoader from "./SaveLoader";
 import { useEffect, useState } from "react";
+import Loader from "./Loader";
 
 function Note({notes, onSaveReFetch}){
     const { id } = useParams();
@@ -26,7 +27,13 @@ function Note({notes, onSaveReFetch}){
     useEffect(() => {
         setNote(notes.find(note => note.id === parseInt(id)));
         setIsSaved(false);
-    }, [id]);
+    }, [id, notes]);
+
+    if(!note){
+        return(
+            <Loader />
+        );
+    }
 
     return (
         <form className="Form" onSubmit={(event) => {event.preventDefault(); saveNote();}}>
