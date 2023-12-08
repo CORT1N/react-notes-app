@@ -30,12 +30,21 @@
 
 .Note-link {
   display: flex;
-  flex-direction: column;
   gap: 6px;
   padding: 16px;
   color: inherit;
   text-decoration: inherit;
   font-weight: bold;
+}
+
+.Note-link-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.Note-link-content{
+  font-size: smaller;
+  opacity: .5;
 }
 
 .Note-link.active {
@@ -64,8 +73,48 @@
   background-color: rgb(44, 51, 56);
 }
 
+.Header{
+  display: flex;
+  background-color: rgb(57, 66, 73);
+}
+
+.Search{
+  background-color: rgb(57, 66, 73);
+  color: white;
+}
+
+.SearchBar{
+  width: 200px;
+}
+
+.SearchInput{
+  width: 170px;
+  height: 40px;
+  border: none;
+  text-align: center;
+}
+
+.SearchInput:focus-visible{
+  outline: 0;
+}
+
+.SearchResetButton{
+  width: 20px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  font-weight: bold;
+  opacity: .5;
+  transition: all .5s;
+}
+
+.SearchResetButton:hover{
+  opacity: .8;
+  transition: all .5s;
+}
+
 .Temperature {
   padding: 8px;
   font-size: 10px;
   color: darkgrey;
-} 
+}

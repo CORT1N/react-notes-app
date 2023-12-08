@@ -9,6 +9,7 @@ function Note({notes, onSaveReFetch}){
     const [note, setNote] = useState(notes.find(note => note.id === parseInt(id)));
     const [isSaved, setIsSaved] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
+    const [idSaved, setIdSaved] = useState(null);
 
     async function saveNote(){
         setIsSaving(true);
@@ -21,12 +22,15 @@ function Note({notes, onSaveReFetch}){
         });
         await onSaveReFetch();
         setIsSaving(false);
+        setIdSaved(id);
         setIsSaved(true);
     }
 
     useEffect(() => {
         setNote(notes.find(note => note.id === parseInt(id)));
-        setIsSaved(false);
+        if(id!=idSaved){
+            setIsSaved(false);
+        }
     }, [id, notes]);
 
     if(!note){
@@ -40,8 +44,11 @@ function Note({notes, onSaveReFetch}){
         <input className="Note-editable Note-title" type="text" value={note.title} onChange={(event) => {setNote({...note, title: event.target.value}); setIsSaved(false);}}/>
         <textarea className="Note-editable Note-content" value={note.content} onChange={(event) => {setNote({...note, content: event.target.value}); setIsSaved(false);}}/>
         <div className="Note-actions">
-            <button className="Button">Enregistrer</button>
-            { isSaving ? <SaveLoader /> : isSaved ? <div>Enregistré</div> : null}
+            <div className="Note-save">
+                <button className="Button">Enregistrer</button>
+                { isSaving ? <SaveLoader /> : isSaved ? <div>Enregistré</div> : null}
+            </div>
+            <button className="Button Button-delete" onClick={(event) => {event.preventDefault();}}>Supprimer</button>
         </div>
         </form>
     );

@@ -3,12 +3,32 @@
     {
       "id": 1,
       "title": "Initiation à React",
-      "content": "Lorem ipsum…"
+      "content": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum"
     },
     {
       "id": 2,
       "title": "Utilisation de json-server",
       "content": "Bla bla"
+    },
+    {
+      "title": "Nouvelle note",
+      "content": "",
+      "id": 3
+    },
+    {
+      "title": "hello",
+      "content": "i'm under the water",
+      "id": 4
+    },
+    {
+      "title": "je suis là",
+      "content": "je suis là",
+      "id": 5
+    },
+    {
+      "title": "Nouvelle note",
+      "content": "",
+      "id": 6
     }
   ],
   "profile": {
