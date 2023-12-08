@@ -50,24 +50,28 @@ function Aside({ notes, fetchNotes }){
                         </div>
                     </div>
                     <ol className='Note-list'>
-                        {notes.filter(note => {
-                            if(searchQuery === ""){
-                                return note;
-                            }else if(note.title.toLowerCase().includes(searchQuery.toLowerCase())){
-                                return note;
-                            }else if(note.content.toLowerCase().includes(searchQuery.toLowerCase())){
-                                return note;
-                            }
-                        }).map((note) => (
-                            <li key={note.id}>
-                                <Link to={"/notes/"+note.id} className={note.id === parseInt(currentID) ? 'Note-link active' : 'Note-link'}>
-                                    <div className='Note-link-container'>
-                                        <div>{highlightSearchTerms(note.title, searchQuery)}</div>
-                                        <div className='Note-link-content'>{highlightSearchTerms(note.content.substring(0,20), searchQuery)}{note.content.length>=20 ? "..." : null}</div>
-                                    </div>
-                                </Link>
-                            </li>
-                        ))}
+                        {notes
+                            .filter(note => {
+                                if(searchQuery === ""){
+                                    return note;
+                                }else if(note.title.toLowerCase().includes(searchQuery.toLowerCase())){
+                                    return note;
+                                }else if(note.content.toLowerCase().includes(searchQuery.toLowerCase())){
+                                    return note;
+                                }
+                            })
+                            .sort((a,b) => new Date(b.date) - new Date(a.date))
+                            .map((note) => (
+                                <li key={note.id}>
+                                    <Link to={"/notes/"+note.id} className={note.id === parseInt(currentID) ? 'Note-link active' : 'Note-link'}>
+                                        <div className='Note-link-container'>
+                                            <div>{highlightSearchTerms(note.title.substring(0,30), searchQuery)}{note.title.length>=30 ? '...' : null}</div>
+                                            <div className='Note-link-content'>{highlightSearchTerms(note.content.substring(0,20), searchQuery)}{note.content.length>=20 ? "..." : null}</div>
+                                        </div>
+                                    </Link>
+                                </li>
+                            ))
+                        }
                     </ol>
                 </>
             ) : <Loader />}
