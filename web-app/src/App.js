@@ -39,7 +39,7 @@ function App() {
               element={
                 <Note 
                   notes={notes}
-                  onSaveReFetch={fetchNotes}
+                  fetchNotes={fetchNotes}
                 />
               }
             />

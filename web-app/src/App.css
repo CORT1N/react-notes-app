@@ -48,7 +48,7 @@
 }
 
 .Note-link.active {
-  background-color: darkslategrey;
+  background-color: rgb(44, 51, 56);
 }
 
 .Note-link-lastUpdatedAt {

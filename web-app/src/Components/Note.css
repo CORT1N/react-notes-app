@@ -38,7 +38,7 @@
     justify-content: space-between;
 }
   
-.Note-save{
+.Note-action{
     display: flex;
     align-items: center;
     gap: 12px;

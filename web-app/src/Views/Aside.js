@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import Loader from '../Components/Loader';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation} from 'react-router-dom';
 
 
 function Aside({ notes, fetchNotes }){
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
+    const location = useLocation();
+    const currentID = location.pathname.split("/").pop();
 
     function resetSearchInput(){
         setSearchQuery("");
@@ -57,14 +59,14 @@ function Aside({ notes, fetchNotes }){
                                 return note;
                             }
                         }).map((note) => (
-                        <li key={note.id}>
-                            <Link to={"/notes/"+note.id} className='Note-link'>
-                                <div className='Note-link-container'>
-                                    <div>{highlightSearchTerms(note.title, searchQuery)}</div>
-                                    <div className='Note-link-content'>{highlightSearchTerms(note.content.substring(0,20), searchQuery)}{note.content.length>=20 ? "..." : null}</div>
-                                </div>
-                            </Link>
-                        </li>
+                            <li key={note.id}>
+                                <Link to={"/notes/"+note.id} className={note.id === parseInt(currentID) ? 'Note-link active' : 'Note-link'}>
+                                    <div className='Note-link-container'>
+                                        <div>{highlightSearchTerms(note.title, searchQuery)}</div>
+                                        <div className='Note-link-content'>{highlightSearchTerms(note.content.substring(0,20), searchQuery)}{note.content.length>=20 ? "..." : null}</div>
+                                    </div>
+                                </Link>
+                            </li>
                         ))}
                     </ol>
                 </>
