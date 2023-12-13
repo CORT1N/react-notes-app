@@ -30,7 +30,7 @@ function App() {
 
   async function fetchNotes(){
     try{
-      const response = await fetch('/notes?_sort=id&_order=desc');
+      const response = await fetch('/notes?_sort=date&_order=desc');
       const data = await response.json();
       setNotes(data);
     }catch(e){

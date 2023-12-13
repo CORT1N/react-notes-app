@@ -15,6 +15,8 @@ function Note({notes, fetchNotes, apiErrorToast }){
     async function saveNote(){
         try{
             setIsSaving(true);
+            const currentTime = new Date().toISOString();
+            note.date = currentTime;
             const response = await fetch('/notes/'+id, {
                 method: "PUT",
                 body: JSON.stringify(note),

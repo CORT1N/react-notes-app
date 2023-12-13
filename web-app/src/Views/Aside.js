@@ -15,6 +15,7 @@ function Aside({ notes, fetchNotes, apiErrorToast }){
 
     async function appendNewNote(){
         try{
+            const currentTime = new Date().toISOString();
             const response = await fetch("/notes", {
                 method: "POST",
                 headers: {
@@ -23,6 +24,7 @@ function Aside({ notes, fetchNotes, apiErrorToast }){
                 body: JSON.stringify({
                     title: "Nouvelle note",
                     content: "",
+                    date: currentTime,
                 })
             });
             const newNote = await response.json();
@@ -36,7 +38,7 @@ function Aside({ notes, fetchNotes, apiErrorToast }){
     }
 
     function highlightSearchTerms(text, searchQuery) {
-        if (searchQuery=="") return text;
+        if (searchQuery==="") return text;
       
         const regex = new RegExp(`(${searchQuery})`, 'gi');
         return text.split(regex).map((part, index) => 
@@ -66,7 +68,6 @@ function Aside({ notes, fetchNotes, apiErrorToast }){
                                     return note;
                                 }
                             })
-                            .sort((a,b) => new Date(b.date) - new Date(a.date))
                             .map((note) => (
                                 <li key={note.id}>
                                     <Link to={"/notes/"+note.id} className={note.id === parseInt(currentID) ? 'Note-link active' : 'Note-link'}>
