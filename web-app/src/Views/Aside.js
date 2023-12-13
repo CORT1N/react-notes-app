@@ -3,7 +3,7 @@ import Loader from '../Components/Loader';
 import { Link, useNavigate, useLocation} from 'react-router-dom';
 
 
-function Aside({ notes, fetchNotes }){
+function Aside({ notes, fetchNotes, apiErrorToast }){
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
     const location = useLocation();
@@ -14,19 +14,25 @@ function Aside({ notes, fetchNotes }){
     }
 
     async function appendNewNote(){
-        const response = await fetch("/notes", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            title: "Nouvelle note",
-            content: "",
-          })
-        });
-        const newNote = await response.json();
-        navigate("/notes/"+newNote.id);
-        fetchNotes();
+        try{
+            const response = await fetch("/notes", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    title: "Nouvelle note",
+                    content: "",
+                })
+            });
+            const newNote = await response.json();
+            navigate("/notes/"+newNote.id);
+            fetchNotes();
+        }
+        catch(e){
+            console.error("Erreur à l'ajout d'une note - "+e);
+            apiErrorToast();
+        }
     }
 
     function highlightSearchTerms(text, searchQuery) {

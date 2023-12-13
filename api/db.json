@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Initiation à React",
       "content": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum",
-      "date" : "2023-01-25T12:34:56.789Z"
+      "date": "2023-01-25T12:34:56.789Z"
     },
     {
       "id": 2,
@@ -17,6 +17,11 @@
       "content": "i'm under the water",
       "id": 4,
       "date": "2022-12-25T12:34:56.789Z"
+    },
+    {
+      "title": "blabla",
+      "content": "jejejej",
+      "id": 6
     }
   ],
   "profile": {

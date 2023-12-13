@@ -4,6 +4,9 @@ import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import Note from './Components/Note';
 import Loader from './Components/Loader';
 import Aside from './Views/Aside'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 
 //  CYCLE DE VIE du composant App:
 //  1. rendu initial (avec les valeurs d'état initiales)
@@ -14,10 +17,26 @@ function App() {
   //déclarer l'état pour stocker les notes
   const [notes, setNotes] = useState(null);
 
+  const apiErrorToast = () => toast.error("Base de données indisponible.", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+
   async function fetchNotes(){
-    const response = await fetch('/notes?_sort=id&_order=desc');
-    const data = await response.json();
-    setNotes(data);
+    try{
+      const response = await fetch('/notes?_sort=id&_order=desc');
+      const data = await response.json();
+      setNotes(data);
+    }catch(e){
+      console.error("Erreur au chargement des notes - "+e);
+      apiErrorToast();
+    }
   }
 
   useEffect(() => {
@@ -29,6 +48,7 @@ function App() {
       <Aside 
         notes={notes}
         fetchNotes={fetchNotes}
+        apiErrorToast={apiErrorToast}
       />
       <main className='Main'>
         {notes !== null ? (
@@ -40,6 +60,7 @@ function App() {
                 <Note 
                   notes={notes}
                   fetchNotes={fetchNotes}
+                  apiErrorToast={apiErrorToast}
                 />
               }
             />
@@ -47,6 +68,7 @@ function App() {
           </Routes>
         ) : <Loader />}
       </main>
+      <ToastContainer />
     </BrowserRouter>
   );
 
