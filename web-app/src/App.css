@@ -9,6 +9,10 @@
   background-color: rgb(29, 35, 39);
 }
 
+.Side-separator{
+  width: 150px;
+}
+
 .Loading {
   text-align: center;
   padding: 16px;
@@ -42,6 +46,7 @@
 .Note-link-container{
   display: flex;
   flex-direction: column;
+  width: 250px;
 }
 
 .Note-link-content{
@@ -58,7 +63,7 @@
   color: darkgrey;
 }
 
-.Note-Pin-Button{
+.Note-Button{
   width: 35px;
   height: 35px;
   display: flex;
@@ -68,7 +73,7 @@
   border: none;
 }
 
-.Note-Pin-Button img{
+.Note-Button img{
   width: 25px;
   height: 25px;
 }
