@@ -37,22 +37,6 @@ function Note({notes, fetchNotes, apiErrorToast }){
         }
     }
 
-    // async function deleteNote(){
-    //     if(window.confirm("Attention : cette action est irréversible !\nVoulez-vous vraiment supprimer cette note ?")){
-    //         try{
-    //             const response = await fetch('/notes/'+id, {
-    //                 method: "DELETE",
-    //             });
-    //             navigate("/");
-    //             fetchNotes();
-    //         }
-    //         catch(e){
-    //             console.error("Erreur à la suppression de la note - "+e);
-    //             apiErrorToast();
-    //         }
-    //     }
-    // }
-
     async function deleteNote(){
         Swal.fire({
             title: "Vous êtes sûr(e) ?",
@@ -93,24 +77,6 @@ function Note({notes, fetchNotes, apiErrorToast }){
             }
           });
     }
-
-    // Swal.fire({
-    //     title: "Are you sure?",
-    //     text: "You won't be able to revert this!",
-    //     icon: "warning",
-    //     showCancelButton: true,
-    //     confirmButtonColor: "#3085d6",
-    //     cancelButtonColor: "#d33",
-    //     confirmButtonText: "Yes, delete it!"
-    //   }).then((result) => {
-    //     if (result.isConfirmed) {
-    //       Swal.fire({
-    //         title: "Deleted!",
-    //         text: "Your file has been deleted.",
-    //         icon: "success"
-    //       });
-    //     }
-    //   });
 
     useEffect(() => {
         setNote(notes.find(note => note.id === parseInt(id)));
