@@ -3,20 +3,23 @@
     {
       "id": 1,
       "title": "Initiation à React",
-      "content": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLaorem ipsumLorem ipsum",
-      "date": "2023-12-13T20:00:16.584Z"
+      "content": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum",
+      "date": "2023-12-15T12:34:18.037Z",
+      "pinned": false
     },
     {
       "id": 2,
       "title": "Utilisation de json-server",
-      "content": "Bla bla",
-      "date": "2023-02-25T12:34:56.789Z"
+      "content": "Bla blaa",
+      "date": "2023-12-15T13:04:00.560Z",
+      "pinned": true
     },
     {
       "title": "hello",
-      "content": "i'm under the wateraa",
+      "content": "i'm under the water",
       "id": 4,
-      "date": "2023-12-13T19:58:34.813Z"
+      "date": "2023-12-15T12:34:12.586Z",
+      "pinned": false
     }
   ],
   "profile": {

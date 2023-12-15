@@ -35,6 +35,8 @@
   color: inherit;
   text-decoration: inherit;
   font-weight: bold;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .Note-link-container{
@@ -54,6 +56,21 @@
 .Note-link-lastUpdatedAt {
   font-size: 10px;
   color: darkgrey;
+}
+
+.Note-Pin-Button{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+}
+
+.Note-Pin-Button img{
+  width: 25px;
+  height: 25px;
 }
 
 .Button {

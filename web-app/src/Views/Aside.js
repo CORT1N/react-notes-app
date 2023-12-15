@@ -25,6 +25,7 @@ function Aside({ notes, fetchNotes, apiErrorToast }){
                     title: "Nouvelle note",
                     content: "",
                     date: currentTime,
+                    pinned: false,
                 })
             });
             const newNote = await response.json();
@@ -44,6 +45,10 @@ function Aside({ notes, fetchNotes, apiErrorToast }){
         return text.split(regex).map((part, index) => 
             regex.test(part) ? <mark key={index}>{part}</mark> : part
         );
+    }
+
+    function pinNote(id){
+        console.log("Note épinglée");
     }
 
     return(
@@ -74,6 +79,14 @@ function Aside({ notes, fetchNotes, apiErrorToast }){
                                         <div className='Note-link-container'>
                                             <div>{highlightSearchTerms(note.title.substring(0,30), searchQuery)}{note.title.length>=30 ? '...' : null}</div>
                                             <div className='Note-link-content'>{highlightSearchTerms(note.content.substring(0,20), searchQuery)}{note.content.length>=20 ? "..." : null}</div>
+                                        </div>
+                                        <div>
+                                            <button className='Note-Pin-Button' onClick={pinNote(note.id)}>
+                                                <img 
+                                                    src={note.pinned ? "/images/pinned_white.png" : "/images/pin_white.png"}
+                                                    alt={note.pinned ? "Pinned" : "Not pinned"}
+                                                />
+                                            </button>
                                         </div>
                                     </Link>
                                 </li>
