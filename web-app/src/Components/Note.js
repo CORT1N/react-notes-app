@@ -3,6 +3,8 @@ import './Note.css';
 import SaveLoader from "./SaveLoader";
 import { useEffect, useState } from "react";
 import Loader from "./Loader";
+import Swal from 'sweetalert2'
+import { toast } from "react-toastify";
 
 function Note({notes, fetchNotes, apiErrorToast }){
     const { id } = useParams();
@@ -35,21 +37,80 @@ function Note({notes, fetchNotes, apiErrorToast }){
         }
     }
 
+    // async function deleteNote(){
+    //     if(window.confirm("Attention : cette action est irréversible !\nVoulez-vous vraiment supprimer cette note ?")){
+    //         try{
+    //             const response = await fetch('/notes/'+id, {
+    //                 method: "DELETE",
+    //             });
+    //             navigate("/");
+    //             fetchNotes();
+    //         }
+    //         catch(e){
+    //             console.error("Erreur à la suppression de la note - "+e);
+    //             apiErrorToast();
+    //         }
+    //     }
+    // }
+
     async function deleteNote(){
-        if(window.confirm("Attention : cette action est irréversible !\nVoulez-vous vraiment supprimer cette note ?")){
-            try{
-                const response = await fetch('/notes/'+id, {
-                    method: "DELETE",
-                });
-                navigate("/");
-                fetchNotes();
+        Swal.fire({
+            title: "Vous êtes sûr(e) ?",
+            text: "Cette action est irréversible !",
+            icon: "warning",
+            iconColor: "#d33",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Supprimer",
+            cancelButtonText: "Annuler",
+            background: "#2c3338",
+            color: "white"
+          }).then(async (result) => {
+            if (result.isConfirmed) {
+                try{
+                    const response = await fetch('/notes/'+id, {
+                        method: "DELETE",
+                    });
+                    navigate("/");
+                    toast.success('Note supprimée.', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                    });
+                    fetchNotes();
+                    
+                }
+                catch(e){
+                    console.error("Erreur à la suppression de la note - "+e);
+                    apiErrorToast();
+                }
             }
-            catch(e){
-                console.error("Erreur à la suppression de la note - "+e);
-                apiErrorToast();
-            }
-        }
+          });
     }
+
+    // Swal.fire({
+    //     title: "Are you sure?",
+    //     text: "You won't be able to revert this!",
+    //     icon: "warning",
+    //     showCancelButton: true,
+    //     confirmButtonColor: "#3085d6",
+    //     cancelButtonColor: "#d33",
+    //     confirmButtonText: "Yes, delete it!"
+    //   }).then((result) => {
+    //     if (result.isConfirmed) {
+    //       Swal.fire({
+    //         title: "Deleted!",
+    //         text: "Your file has been deleted.",
+    //         icon: "success"
+    //       });
+    //     }
+    //   });
 
     useEffect(() => {
         setNote(notes.find(note => note.id === parseInt(id)));

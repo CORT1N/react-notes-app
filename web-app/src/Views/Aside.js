@@ -122,7 +122,7 @@ function Aside({ notes, fetchNotes, apiErrorToast }){
                                             <div>{highlightSearchTerms(note.title.substring(0,30), searchQuery)}{note.title.length>=30 ? '...' : null}</div>
                                             <div className='Note-link-content'>{highlightSearchTerms(note.content.substring(0,20), searchQuery)}{note.content.length>=20 ? "..." : null}</div>
                                         </div>
-                                        <div>
+                                        <div className='Note-Buttons-Container'>
                                             <button className='Note-Button' onClick={() => {pinNote(note.id)}}>
                                                 <img 
                                                     src={note.pinned ? "/images/pinned_white.png" : "/images/pin_white.png"}
