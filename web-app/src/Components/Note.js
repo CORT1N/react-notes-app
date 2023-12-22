@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import Loader from "./Loader";
 import Swal from 'sweetalert2'
 import { toast } from "react-toastify";
+import { useDebouncedEffect } from './useDebouncedEffect';
+
 
 function Note({notes, fetchNotes, apiErrorToast }){
     const { id } = useParams();
@@ -77,6 +79,11 @@ function Note({notes, fetchNotes, apiErrorToast }){
             }
           });
     }
+
+    // Utilisation de useDebouncedEffect pour déclencher la sauvegarde automatique après un délai de 1000ms (1 seconde)
+    useDebouncedEffect(() => {
+        saveNote();
+    }, [note], 1000);
 
     useEffect(() => {
         setNote(notes.find(note => note.id === parseInt(id)));
