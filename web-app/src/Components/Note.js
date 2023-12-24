@@ -18,20 +18,22 @@ function Note({notes, fetchNotes, apiErrorToast }){
 
     async function saveNote(){
         try{
-            setIsSaving(true);
-            const currentTime = new Date().toISOString();
-            note.date = currentTime;
-            const response = await fetch('/notes/'+id, {
-                method: "PUT",
-                body: JSON.stringify(note),
-                headers: {
-                    "Content-Type": "application/json"
-                },
-            });
-            await fetchNotes();
-            setIsSaving(false);
-            setIdSaved(id);
-            setIsSaved(true);
+            if(!isSaved){
+                setIsSaving(true);
+                const currentTime = new Date().toISOString();
+                note.date = currentTime;
+                const response = await fetch('/notes/'+id, {
+                    method: "PUT",
+                    body: JSON.stringify(note),
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                });
+                await fetchNotes();
+                setIsSaving(false);
+                setIdSaved(id);
+                setIsSaved(true);
+            }
         }
         catch(e){
             console.error("Erreur à la modification de la note - "+e);
@@ -80,7 +82,7 @@ function Note({notes, fetchNotes, apiErrorToast }){
           });
     }
 
-    // Utilisation de useDebouncedEffect pour déclencher la sauvegarde automatique après un délai de 1000ms (1 seconde)
+    // Utilisation de useDebouncedEffect pour déclencher la sauvegarde automatique après un délai de 1000ms
     useDebouncedEffect(() => {
         saveNote();
     }, [note], 1000);
@@ -104,7 +106,6 @@ function Note({notes, fetchNotes, apiErrorToast }){
             <textarea className="Note-editable Note-content" value={note.content} onChange={(event) => {setNote({...note, content: event.target.value}); setIsSaved(false);}}/>
             <div className="Note-actions">
                 <div className="Note-action">
-                    <button className="Button">Enregistrer</button>
                     { isSaving ? <SaveLoader /> : isSaved ? <div>Enregistré</div> : null}
                 </div>
                 <button className="Button Button-delete" onClick={(event) => {event.preventDefault(); deleteNote();}}>Supprimer</button>
