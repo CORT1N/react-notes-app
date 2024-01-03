@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Initiation à React",
       "content": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum",
-      "date": "2023-12-23T11:36:33.469Z",
+      "date": "2024-01-03T00:06:29.811Z",
       "pinned": false,
       "checked": true
     },
@@ -12,7 +12,7 @@
       "id": 2,
       "title": "Utilisation de json-server",
       "content": "Bla blaaa",
-      "date": "2023-12-15T14:31:11.913Z",
+      "date": "2024-01-03T00:06:34.900Z",
       "pinned": false,
       "checked": false
     },
@@ -20,9 +20,16 @@
       "title": "hello",
       "content": "i'm under the water",
       "id": 4,
-      "date": "2023-12-23T11:36:37.527Z",
+      "date": "2024-01-03T00:11:13.658Z",
       "pinned": true,
       "checked": false
+    },
+    {
+      "title": "Initiation au format Markdown",
+      "content": "# Titre 1\n\n* Allo ? \n* Le format est pris en charge, je ne l'ai juste pas stylisé.\n\n## Titre 2\n\n```js\nimport React from 'react'\nimport ReactDOM from 'react-dom'\nimport Markdown from 'react-markdown'\nimport rehypeHighlight from 'rehype-highlight'\n\nconst markdown = `\n# Your markdown here\n`\n\nReactDOM.render(\n  <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>,\n  document.querySelector('#content')\n)\n```\n\n### Titre 3\n\n* [ ] task list\n* [x] checked item\n",
+      "date": "2024-01-03T00:11:59.818Z",
+      "pinned": false,
+      "id": 5
     }
   ],
   "profile": {

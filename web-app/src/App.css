@@ -22,10 +22,25 @@
 .Main {
   height: 100vh;
   margin-inline-start: 240px;
+}
+
+.Note{
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.Note-group{
+  display: flex;
+}
+
+.Markdown-preview-panel{
+  width: 800px;
+  padding: 10px; 
+  box-sizing: border-box;
 }
 
 .Note-list{

@@ -6,9 +6,10 @@ import Loader from "./Loader";
 import Swal from 'sweetalert2'
 import { toast } from "react-toastify";
 import { useDebouncedEffect } from './useDebouncedEffect';
+import ReactMarkdown from 'react-markdown';
 
 
-function Note({notes, fetchNotes, apiErrorToast }){
+function Note({ notes, fetchNotes, apiErrorToast }){
     const { id } = useParams();
     const [note, setNote] = useState(notes.find(note => note.id === parseInt(id)));
     const [isSaved, setIsSaved] = useState(false);
@@ -101,16 +102,24 @@ function Note({notes, fetchNotes, apiErrorToast }){
     }
 
     return (
-        <form className="Form" onSubmit={(event) => {event.preventDefault(); saveNote();}}>
-            <input className="Note-editable Note-title" type="text" value={note.title} onChange={(event) => {setNote({...note, title: event.target.value}); setIsSaved(false);}}/>
-            <textarea className="Note-editable Note-content" value={note.content} onChange={(event) => {setNote({...note, content: event.target.value}); setIsSaved(false);}}/>
-            <div className="Note-actions">
-                <div className="Note-action">
-                    { isSaving ? <SaveLoader /> : isSaved ? <div>Enregistré</div> : null}
-                </div>
-                <button className="Button Button-delete" onClick={(event) => {event.preventDefault(); deleteNote();}}>Supprimer</button>
+        <div className="Note-group">
+            <div className="Note">
+                <form className="Form" onSubmit={(event) => {event.preventDefault(); saveNote();}}>
+                    <input className="Note-editable Note-title" type="text" value={note.title} onChange={(event) => {setNote({...note, title: event.target.value}); setIsSaved(false);}}/>
+                    <textarea className="Note-editable Note-content" value={note.content} onChange={(event) => {setNote({...note, content: event.target.value}); setIsSaved(false);}}/>
+                    <div className="Note-actions">
+                        <div className="Note-action">
+                            { isSaving ? <SaveLoader /> : isSaved ? <div>Enregistré</div> : null}
+                        </div>
+                        <button className="Button Button-delete" onClick={(event) => {event.preventDefault(); deleteNote();}}>Supprimer</button>
+                    </div>
+                </form>
             </div>
-        </form>
+            <div className="Markdown-preview-panel">
+                {/* Panneau de prévisualisation du format Markdown */}
+                <ReactMarkdown>{note.content}</ReactMarkdown>
+            </div>
+        </div>
     );
 
 }
