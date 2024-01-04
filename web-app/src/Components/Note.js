@@ -16,6 +16,7 @@ function Note({ notes, fetchNotes, apiErrorToast }){
     const [isSaving, setIsSaving] = useState(false);
     const [idSaved, setIdSaved] = useState(null);
     const navigate = useNavigate();
+    const [markdownPanelEnabled, setMarkdownPanelEnabled] = useState(false);
 
     async function saveNote(){
         try{
@@ -111,14 +112,27 @@ function Note({ notes, fetchNotes, apiErrorToast }){
                         <div className="Note-action">
                             { isSaving ? <SaveLoader /> : isSaved ? <div>Enregistré</div> : null}
                         </div>
-                        <button className="Button Button-delete" onClick={(event) => {event.preventDefault(); deleteNote();}}>Supprimer</button>
+                        <div className="Note-action-right">
+                            <button className="Button Button-delete" onClick={(event) => {event.preventDefault(); deleteNote();}}>Supprimer</button>
+                            <label for="markdownEnable">
+                                Markdown ?
+                            </label>
+                            <input
+                                type='checkbox'
+                                checked={markdownPanelEnabled}
+                                onChange={() => setMarkdownPanelEnabled(!markdownPanelEnabled)}
+                                name="markdownEnable"
+                            />
+                        </div>
                     </div>
                 </form>
             </div>
-            <div className="Markdown-preview-panel">
-                {/* Panneau de prévisualisation du format Markdown */}
-                <ReactMarkdown>{note.content}</ReactMarkdown>
-            </div>
+            {markdownPanelEnabled && (
+                <div className="Markdown-preview-panel">
+                    {/* Panneau de prévisualisation du format Markdown */}
+                    <ReactMarkdown>{note.content}</ReactMarkdown>
+                </div>
+            )}
         </div>
     );
 

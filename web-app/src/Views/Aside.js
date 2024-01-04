@@ -122,7 +122,18 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
                                 <li key={note.id}>
                                     <Link to={"/notes/"+note.id} className={note.id === parseInt(currentID) ? 'Note-link active' : 'Note-link'}>
                                         <div className='Note-link-container'>
-                                            <div>{highlightSearchTerms(note.title.substring(0,30), searchQuery)}{note.title.length>=30 ? '...' : null}</div>
+                                            <div>
+                                                {highlightSearchTerms(note.title.substring(0,30), searchQuery)}{note.title.length>=30 ? '...' : null}
+                                                {note.etiquettes && note.etiquettes.map((etiquette, index) => (
+                                                    <span
+                                                        key={index}
+                                                        className='Etiquette'
+                                                        style={{ backgroundColor: etiquette.color }}
+                                                    >
+                                                        {etiquette.name}
+                                                    </span>
+                                                ))}
+                                            </div>
                                             <div className='Note-link-content'>{highlightSearchTerms(note.content.substring(0,20), searchQuery)}{note.content.length>=20 ? "..." : null}</div>
                                         </div>
                                         <div className='Note-Buttons-Container'>
@@ -169,7 +180,18 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
                                 <li key={note.id}>
                                     <Link to={"/notes/"+note.id} className={note.id === parseInt(currentID) ? 'Note-link active' : 'Note-link'}>
                                         <div className='Note-link-container'>
-                                            <div>{highlightSearchTerms(note.title.substring(0,30), searchQuery)}{note.title.length>=30 ? '...' : null}</div>
+                                            <div>
+                                                {highlightSearchTerms(note.title.substring(0,30), searchQuery)}{note.title.length>=30 ? '...' : null}
+                                                {note.etiquettes && note.etiquettes.map((etiquette, index) => (
+                                                    <span
+                                                        key={index}
+                                                        className='Etiquette'
+                                                        style={{ backgroundColor: etiquette.color }}
+                                                    >
+                                                        {etiquette.name}
+                                                    </span>
+                                                ))}
+                                            </div>
                                             <div className='Note-link-content'>{highlightSearchTerms(note.content.substring(0,20), searchQuery)}{note.content.length>=20 ? "..." : null}</div>
                                         </div>
                                         <div className='Note-Buttons-Container'>

@@ -43,3 +43,10 @@
     align-items: center;
     gap: 12px;
 }
+
+.Note-action-right{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
