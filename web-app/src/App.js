@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 function App() {
   //déclarer l'état pour stocker les notes
   const [notes, setNotes] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const apiErrorToast = () => toast.error("Base de données indisponible.", {
     position: "top-right",
@@ -39,8 +40,20 @@ function App() {
     }
   }
 
+  async function fetchCurrentUser(){
+    try{
+      const response = await fetch('/profile');
+      const data = await response.json();
+      setCurrentUser(data);
+    }catch(e){
+      console.error("Erreur au chargement de l'utilisateur connecté - "+e);
+      apiErrorToast();
+    }
+  }
+
   useEffect(() => {
     fetchNotes();
+    fetchCurrentUser();
   }, []);
 
   return (
@@ -49,6 +62,7 @@ function App() {
         notes={notes}
         fetchNotes={fetchNotes}
         apiErrorToast={apiErrorToast}
+        currentUser={currentUser}
       />
       <main className='Main'>
         {notes !== null ? (

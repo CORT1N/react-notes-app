@@ -3,7 +3,7 @@ import Loader from '../Components/Loader';
 import { Link, useNavigate, useLocation} from 'react-router-dom';
 
 
-function Aside({ notes, fetchNotes, apiErrorToast }){
+function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
     const location = useLocation();
@@ -87,6 +87,9 @@ function Aside({ notes, fetchNotes, apiErrorToast }){
         <aside className='Side'>
             {notes !== null ? (
                 <>
+                    <div className='Status'>
+                        {currentUser && <span>Connecté en tant que {currentUser.name}</span>}
+                    </div>
                     <div className='Header'>
                         <button onClick={appendNewNote} className='Button Button-create-note'>+</button>
                         <div className='SearchBar'>
