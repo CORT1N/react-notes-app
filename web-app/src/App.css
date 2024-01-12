@@ -1,4 +1,4 @@
-.Side {
+.dark-mode .Side {
   position: fixed;
   width: 240px;
   top: 0px;
@@ -7,6 +7,18 @@
   display: flex;
   flex-direction: column;
   background-color: rgb(29, 35, 39);
+  overflow: scroll;
+}
+
+.Side {
+  position: fixed;
+  width: 240px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
   overflow: scroll;
 }
 
@@ -86,8 +98,12 @@
   opacity: .5;
 }
 
-.Note-link.active {
+.dark-mode .Note-link.active {
   background-color: rgb(44, 51, 56);
+}
+
+.Note-link.active {
+  background-color: white;
 }
 
 .Note-link-lastUpdatedAt {
@@ -110,7 +126,7 @@
   height: 25px;
 }
 
-.Button {
+.dark-mode .Button {
   padding: 8px;
   display: flex;
   justify-content: center;
@@ -120,16 +136,38 @@
   color: inherit;
 }
 
-.Button-create-note {
+.Button {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(175, 175, 175);
+  border: none;
+  color: inherit;
+}
+
+.dark-mode .Button-create-note {
   width: 40px;
   height: 40px;
   font-size: 24px;
   background-color: rgb(44, 51, 56);
 }
 
-.Header{
+.Button-create-note {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  background-color: rgb(225, 225, 225);
+}
+
+.dark-mode .Header{
   display: flex;
   background-color: rgb(57, 66, 73);
+}
+
+.Header{
+  display: flex;
+  background-color: white;
 }
 
 .Footer{
@@ -140,9 +178,14 @@
   justify-content: center;
 }
 
-.Search{
+.dark-mode .Search{
   background-color: rgb(57, 66, 73);
   color: white;
+}
+
+.Search{
+  background-color: white;
+  color: black;
 }
 
 .SearchBar{
@@ -167,12 +210,10 @@
   border: none;
   font-weight: bold;
   opacity: .5;
-  transition: all .5s;
 }
 
 .SearchResetButton:hover{
   opacity: .8;
-  transition: all .5s;
 }
 
 .Temperature {

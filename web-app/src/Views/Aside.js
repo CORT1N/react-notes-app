@@ -16,7 +16,7 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
     const indexOfFirstNote = indexOfLastNote - notesPerPage;
     var currentNotes=null;
     {notes !== null ? currentNotes = notes.slice(indexOfFirstNote, indexOfLastNote) : currentNotes = 0};
-    const [isDarkMode, setIsDarkMode] = useState(true);
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
@@ -171,13 +171,13 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
                                         <div className='Note-Buttons-Container'>
                                             <button className='Note-Button' onClick={() => {pinNote(note.id)}}>
                                                 <img 
-                                                    src={note.pinned ? "/images/pinned_white.png" : "/images/pin_white.png"}
-                                                    alt={note.pinned ? "Pinned" : "Not pinned"}
+                                                    src={isDarkMode ? "/images/pinned_white.png" : "/images/pinned.png"}
+                                                    alt="Pinned"
                                                 />
                                             </button>
                                             <button className='Note-Button' onClick={() => {checkNote(note.id)}}>
                                                 <img 
-                                                    src={note.checked ? "/images/checked.png" : "/images/check.png"}
+                                                    src={isDarkMode ? note.checked ? "/images/checked_white.png" : "/images/check_white.png" : note.checked ? "/images/checked.png" : "/images/check.png"}
                                                     alt={note.checked ? "Checked" : "Not checked"}
                                                 />
                                             </button>
@@ -229,13 +229,13 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
                                         <div className='Note-Buttons-Container'>
                                             <button className='Note-Button' onClick={() => {pinNote(note.id)}}>
                                                 <img 
-                                                    src={note.pinned ? "/images/pinned_white.png" : "/images/pin_white.png"}
+                                                    src={isDarkMode ? "/images/pin_white.png" : "/images/pin.png"}
                                                     alt={note.pinned ? "Pinned" : "Not pinned"}
                                                 />
                                             </button>
                                             <button className='Note-Button' onClick={() => {checkNote(note.id)}}>
                                                 <img 
-                                                    src={note.checked ? "/images/checked.png" : "/images/check.png"}
+                                                    src={isDarkMode ? note.checked ? "/images/checked_white.png" : "/images/check_white.png" : note.checked ? "/images/checked.png" : "/images/check.png"}
                                                     alt={note.checked ? "Checked" : "Not checked"}
                                                 />
                                             </button>
@@ -249,7 +249,7 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
                         {renderPaginationButtons()}
                     </div>
                     <button onClick={toggleDarkMode} className='ToggleThemeButton'>
-                        {isDarkMode ? 'Mode Jour' : 'Mode Nuit'}
+                        {isDarkMode ? 'Mode Nuit' : 'Mode Jour'}
                     </button>
                 </>
             ) : <Loader />}

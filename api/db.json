@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Initiation à React",
       "content": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumaaaaa",
-      "date": "2024-01-12T13:16:55.617Z",
+      "date": "2024-01-12T13:40:43.704Z",
       "pinned": false,
       "checked": true,
       "etiquettes": [
@@ -30,23 +30,17 @@
       "title": "hello",
       "content": "i'm under the water",
       "id": 4,
-      "date": "2024-01-12T13:01:24.241Z",
+      "date": "2024-01-12T14:01:55.569Z",
       "pinned": false,
       "checked": false
     },
     {
       "title": "Initiation au format Markdown",
       "content": "# Titre 1\n\n* Allo ? \n* Le format est pris en charge, je ne l'ai juste pas stylisé.\n\n## Titre 2\n\n```js\nimport React from 'react'\nimport ReactDOM from 'react-dom'\nimport Markdown from 'react-markdown'\nimport rehypeHighlight from 'rehype-highlight'\n\nconst markdown = `\n# Your markdown here\n`\n\nReactDOM.render(\n  <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>,\n  document.querySelector('#content')\n)\n```\n\n### Titre 3\n\n* [ ] task list\n* [x] checked item\n",
-      "date": "2024-01-12T12:51:46.563Z",
+      "date": "2024-01-12T13:58:36.419Z",
       "pinned": true,
-      "id": 5
-    },
-    {
-      "title": "Nouvelle note",
-      "content": "",
-      "date": "2024-01-12T13:16:49.171Z",
-      "pinned": false,
-      "id": 6
+      "id": 5,
+      "checked": false
     }
   ],
   "profile": {
