@@ -10,23 +10,33 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
     const currentID = location.pathname.split("/").pop();
     const [currentPage, setCurrentPage] = useState(1);
     const notesPerPage = 4; // Nombre de notes par page
-    const totalPages = Math.ceil(notes.length / notesPerPage);
+    var totalPages=null;
+    {notes !== null ? totalPages = Math.ceil(notes.length / notesPerPage) : totalPages = 0}
     const indexOfLastNote = currentPage * notesPerPage;
     const indexOfFirstNote = indexOfLastNote - notesPerPage;
-    const currentNotes = notes.slice(indexOfFirstNote, indexOfLastNote);
+    var currentNotes=null;
+    {notes !== null ? currentNotes = notes.slice(indexOfFirstNote, indexOfLastNote) : currentNotes = 0};
+    const [isDarkMode, setIsDarkMode] = useState(true);
+
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+        document.body.classList.toggle('dark-mode', !isDarkMode);
+    };
 
     const renderPaginationButtons = () => {
         const pageButtons = [];
-        for (let i = 1; i <= totalPages; i++) {
-            pageButtons.push(
-            <button
-                key={i}
-                onClick={() => setCurrentPage(i)}
-                className={currentPage === i ? 'active' : ''}
-            >
-                {i}
-            </button>
-            );
+        if(totalPages !== null){
+            for (let i = 1; i <= totalPages; i++) {
+                pageButtons.push(
+                <button
+                    key={i}
+                    onClick={() => setCurrentPage(i)}
+                    className={currentPage === i ? 'active' : ''}
+                >
+                    {i}
+                </button>
+                );
+            }
         }
         return pageButtons;
     };
@@ -238,6 +248,9 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
                     <div className='Pagination'>
                         {renderPaginationButtons()}
                     </div>
+                    <button onClick={toggleDarkMode} className='ToggleThemeButton'>
+                        {isDarkMode ? 'Mode Jour' : 'Mode Nuit'}
+                    </button>
                 </>
             ) : <Loader />}
         </aside>

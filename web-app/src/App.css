@@ -200,3 +200,14 @@
 .Pagination button.active {
   background-color: #ccc;
 }
+
+.ToggleThemeButton {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}

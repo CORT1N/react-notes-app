@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Initiation à React",
       "content": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumaaaaa",
-      "date": "2024-01-12T12:51:25.874Z",
+      "date": "2024-01-12T13:16:55.617Z",
       "pinned": false,
       "checked": true,
       "etiquettes": [
@@ -30,7 +30,7 @@
       "title": "hello",
       "content": "i'm under the water",
       "id": 4,
-      "date": "2024-01-11T11:36:54.273Z",
+      "date": "2024-01-12T13:01:24.241Z",
       "pinned": false,
       "checked": false
     },
@@ -40,6 +40,13 @@
       "date": "2024-01-12T12:51:46.563Z",
       "pinned": true,
       "id": 5
+    },
+    {
+      "title": "Nouvelle note",
+      "content": "",
+      "date": "2024-01-12T13:16:49.171Z",
+      "pinned": false,
+      "id": 6
     }
   ],
   "profile": {
