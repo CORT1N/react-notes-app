@@ -180,3 +180,23 @@
   font-size: 10px;
   color: darkgrey;
 }
+
+.Pagination {
+  margin-top: auto; /* Pour pousser les boutons vers le bas de l'espace disponible */
+  margin-bottom: 10px; /* Écart de 10px du bas de l'espace disponible */
+  display: flex;
+  justify-content: center; /* Pour centrer les boutons horizontalement */
+  align-items: flex-end; /* Pour aligner les boutons en bas de l'espace disponible */
+}
+
+.Pagination button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.Pagination button.active {
+  background-color: #ccc;
+}

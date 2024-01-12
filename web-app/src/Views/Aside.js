@@ -8,6 +8,28 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
     const [searchQuery, setSearchQuery] = useState("");
     const location = useLocation();
     const currentID = location.pathname.split("/").pop();
+    const [currentPage, setCurrentPage] = useState(1);
+    const notesPerPage = 4; // Nombre de notes par page
+    const totalPages = Math.ceil(notes.length / notesPerPage);
+    const indexOfLastNote = currentPage * notesPerPage;
+    const indexOfFirstNote = indexOfLastNote - notesPerPage;
+    const currentNotes = notes.slice(indexOfFirstNote, indexOfLastNote);
+
+    const renderPaginationButtons = () => {
+        const pageButtons = [];
+        for (let i = 1; i <= totalPages; i++) {
+            pageButtons.push(
+            <button
+                key={i}
+                onClick={() => setCurrentPage(i)}
+                className={currentPage === i ? 'active' : ''}
+            >
+                {i}
+            </button>
+            );
+        }
+        return pageButtons;
+    };
 
     function resetSearchInput(){
         setSearchQuery("");
@@ -155,7 +177,7 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
                             ))
                         }
                         <hr className='Side-separator'></hr>
-                        {notes
+                        {currentNotes
                             .filter(note => !note.pinned)
                             .filter(note => {
                                 if(searchQuery === ""){
@@ -213,6 +235,9 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser }){
                             ))
                         }
                     </ol>
+                    <div className='Pagination'>
+                        {renderPaginationButtons()}
+                    </div>
                 </>
             ) : <Loader />}
         </aside>
