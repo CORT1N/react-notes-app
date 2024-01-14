@@ -67,7 +67,7 @@ function App() {
       <main className='Main'>
         {notes !== null ? (
           <Routes>
-            <Route path="/" element="Sélectionner une note" />
+            <Route path="/" element={<span className='NoNoteSelected'>Sélectionner une note</span>}/>
             <Route
               path="/notes/:id" 
               element={

@@ -3,8 +3,8 @@
     {
       "id": 1,
       "title": "Initiation à React",
-      "content": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumaaaaa",
-      "date": "2024-01-12T13:40:43.704Z",
+      "content": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum",
+      "date": "2024-01-14T12:52:12.765Z",
       "pinned": false,
       "checked": true,
       "etiquettes": [
@@ -22,22 +22,32 @@
       "id": 2,
       "title": "Utilisation de json-server",
       "content": "Bla blaaa",
-      "date": "2024-01-12T12:56:19.368Z",
+      "date": "2024-01-13T10:45:39.898Z",
       "pinned": false,
-      "checked": false
+      "checked": false,
+      "etiquettes": [
+        {
+          "name": "JSON",
+          "color": "orange"
+        },
+        {
+          "name": "FakeDB",
+          "color": "red"
+        }
+      ]
     },
     {
       "title": "hello",
       "content": "i'm under the water",
       "id": 4,
-      "date": "2024-01-12T14:01:55.569Z",
+      "date": "2024-01-14T12:52:15.865Z",
       "pinned": false,
       "checked": false
     },
     {
       "title": "Initiation au format Markdown",
       "content": "# Titre 1\n\n* Allo ? \n* Le format est pris en charge, je ne l'ai juste pas stylisé.\n\n## Titre 2\n\n```js\nimport React from 'react'\nimport ReactDOM from 'react-dom'\nimport Markdown from 'react-markdown'\nimport rehypeHighlight from 'rehype-highlight'\n\nconst markdown = `\n# Your markdown here\n`\n\nReactDOM.render(\n  <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>,\n  document.querySelector('#content')\n)\n```\n\n### Titre 3\n\n* [ ] task list\n* [x] checked item\n",
-      "date": "2024-01-12T13:58:36.419Z",
+      "date": "2024-01-14T13:00:12.970Z",
       "pinned": true,
       "id": 5,
       "checked": false
