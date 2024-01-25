@@ -4,37 +4,25 @@
       "id": 1,
       "title": "Initiation à React",
       "content": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum",
-      "date": "2024-01-25T09:14:53.210Z",
+      "date": "2024-01-25T20:13:13.174Z",
       "pinned": false,
       "checked": true,
-      "etiquettes": [
-        {
-          "name": "React",
-          "color": "#0f0f0f"
-        },
-        {
-          "name": "JS",
-          "color": "purple"
-        }
+      "tags": [
+        3,
+        4
       ],
       "inTrash": false
     },
     {
       "id": 2,
       "title": "Utilisation de json-server",
-      "content": "Bla blaaaaaa",
-      "date": "2024-01-25T11:19:23.859Z",
+      "content": "Bla blaaa",
+      "date": "2024-01-25T20:17:02.699Z",
       "pinned": false,
       "checked": false,
-      "etiquettes": [
-        {
-          "name": "JSON",
-          "color": "orange"
-        },
-        {
-          "name": "FakeDB",
-          "color": "red"
-        }
+      "tags": [
+        1,
+        2
       ],
       "inTrash": false
     },
@@ -42,19 +30,43 @@
       "title": "hello",
       "content": "i'm under the water",
       "id": 4,
-      "date": "2024-01-25T09:14:51.665Z",
+      "date": "2024-01-25T20:14:47.331Z",
       "pinned": false,
       "checked": false,
-      "inTrash": true
+      "inTrash": true,
+      "tags": []
     },
     {
       "title": "Initiation au format Markdown",
-      "content": "# Titre 1\n\n* Allo ? \n* Le format est pris en charge, je ne l'ai juste pas stylisé.\n\n## Titre 2\n\n```js\nimport React from 'react'\nimport ReactDOM from 'react-dom'\nimport Markdown from 'react-markdown'\nimport rehypeHighlight from 'rehype-highlight'\n\nconst markdown = `\n# Your markdown here\n`\n\nReactDOM.render(\n  <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>,\n  document.querySelector('#content')\n)\n```\n\n### Titre 3\n\n* [ ] task list\n* [x] checked item\n",
-      "date": "2024-01-25T09:17:47.062Z",
+      "content": "# Titre 1\n\n* Allo ? \n* Le format est pris en charge, je ne l'ai juste pas stylisé.\n\n## Titre 2\n\n```js\nimport React from 'react'\nimport ReactDOM from 'react-dom'\nimport Markdown from 'react-markdown'\nimport rehypeHighlight from 'rehype-highlight'\n\nconst markdown = `\n# Your markdown here\n`\n\nReactDOM.render(\n  <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>,\n  document.querySelector('#content')\n)\n```\n\n### Titre 3\n\n* [ ] task list\n* [x] checked item",
+      "date": "2024-01-25T13:54:15.127Z",
       "pinned": true,
       "id": 5,
       "checked": false,
-      "inTrash": false
+      "inTrash": false,
+      "tags": []
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "name": "JSON",
+      "color": "orange"
+    },
+    {
+      "id": 2,
+      "name": "FakeDB",
+      "color": "red"
+    },
+    {
+      "id": 3,
+      "name": "React",
+      "color": "#0f0f0f"
+    },
+    {
+      "id": 4,
+      "name": "JS",
+      "color": "purple"
     }
   ],
   "profile": {

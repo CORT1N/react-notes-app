@@ -6,7 +6,7 @@ import Note from '../Components/Note';
 import TrashList from '../Components/TrashList';
 
 
-function Aside({ notes, fetchNotes, apiErrorToast, currentUser, isTrashViewEnabled, setIsTrashViewEnabled }){
+function Aside({ notes, fetchNotes, apiErrorToast, currentUser, isTrashViewEnabled, setIsTrashViewEnabled, isDarkMode, setIsDarkMode, tags}){
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
     const location = useLocation();
@@ -19,7 +19,6 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser, isTrashViewEnabl
     const indexOfFirstNote = indexOfLastNote - notesPerPage;
     var currentNotes=null;
     {notes !== null ? currentNotes = notes.slice(indexOfFirstNote, indexOfLastNote) : currentNotes = 0};
-    const [isDarkMode, setIsDarkMode] = useState(false);
 
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
@@ -144,6 +143,7 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser, isTrashViewEnabl
                             isDarkMode={isDarkMode}
                             checkNote={checkNote}
                             currentNotes={currentNotes}
+                            tags={tags}
                         />
                     :
                         <NoteList 
@@ -155,6 +155,7 @@ function Aside({ notes, fetchNotes, apiErrorToast, currentUser, isTrashViewEnabl
                             isDarkMode={isDarkMode}
                             checkNote={checkNote}
                             currentNotes={currentNotes}
+                            tags={tags}
                         />
                     }    
                     <div className='Trash'>

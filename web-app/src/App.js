@@ -19,6 +19,8 @@ function App() {
   const [notes, setNotes] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [isTrashViewEnabled, setIsTrashViewEnabled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [tags, setTags] = useState(null);
 
   const apiErrorToast = () => toast.error("Base de données indisponible.", {
     position: "top-right",
@@ -42,6 +44,17 @@ function App() {
     }
   }
 
+  async function fetchTags(){
+    try{
+      const response = await fetch('/tags');
+      const data = await response.json();
+      setTags(data);
+    }catch(e){
+      console.error("Erreur au chargement des libellés - "+e);
+      apiErrorToast();
+    }
+  }
+
   async function fetchCurrentUser(){
     try{
       const response = await fetch('/profile');
@@ -56,6 +69,7 @@ function App() {
   useEffect(() => {
     fetchNotes();
     fetchCurrentUser();
+    fetchTags();
   }, []);
 
   return (
@@ -67,6 +81,9 @@ function App() {
         currentUser={currentUser}
         isTrashViewEnabled={isTrashViewEnabled}
         setIsTrashViewEnabled={setIsTrashViewEnabled}
+        isDarkMode={isDarkMode}
+        setIsDarkMode={setIsDarkMode}
+        tags={tags}
       />
       <main className='Main'>
         {notes !== null ? (
@@ -87,6 +104,9 @@ function App() {
                   notes={notes}
                   fetchNotes={fetchNotes}
                   apiErrorToast={apiErrorToast}
+                  isDarkMode={isDarkMode}
+                  setIsDarkMode={setIsDarkMode}
+                  tags={tags}
                 />
               }
             />

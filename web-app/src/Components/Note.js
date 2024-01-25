@@ -7,9 +7,9 @@ import Swal from 'sweetalert2'
 import { toast } from "react-toastify";
 import { useDebouncedEffect } from './useDebouncedEffect';
 import ReactMarkdown from 'react-markdown';
+import BasicModal from "./BasicModal";
 
-
-function Note({ notes, fetchNotes, apiErrorToast }){
+function Note({ notes, fetchNotes, apiErrorToast, isDarkMode, setIsDarkMode, tags }){
     const { id } = useParams();
     const [note, setNote] = useState(notes.find(note => note.id === parseInt(id)));
     const [isSaved, setIsSaved] = useState(false);
@@ -117,6 +117,16 @@ function Note({ notes, fetchNotes, apiErrorToast }){
                     <input className="Note-editable Note-title" type="text" value={note.title} onChange={(event) => {setNote({...note, title: event.target.value}); setIsSaved(false); setIsEditing(true);}}/>
                     <textarea className="Note-editable Note-content" value={note.content} onChange={(event) => {setNote({...note, content: event.target.value}); setIsSaved(false); setIsEditing(true);}}/>
                     <div className="Note-actions">
+                        <div className="Note-action">
+                            <BasicModal
+                                className='Button Button-Etiquettes'
+                                isDarkMode={isDarkMode}
+                                tags={tags}
+                                note={note}
+                                apiErrorToast={apiErrorToast}
+                                saveNote={saveNote}
+                            />
+                        </div>
                         <div className="Note-action">
                             { isSaving ? <SaveLoader /> : isSaved ? <div>Enregistré</div> : isEditing ? null : <span className="Note-date">{note.date}</span>}
                         </div>

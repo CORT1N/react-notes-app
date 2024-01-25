@@ -50,3 +50,7 @@
     align-items: center;
     gap: 10px;
 }
+
+.Button-Etiquettes img{
+    width: 30px;
+}

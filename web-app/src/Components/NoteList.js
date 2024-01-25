@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-function NoteList({notes, searchQuery, currentID, highlightSearchTerms, pinNote, isDarkMode, checkNote, currentNotes}){
+function NoteList({notes, searchQuery, currentID, highlightSearchTerms, pinNote, isDarkMode, checkNote, currentNotes, tags}){
     return(
         <ol className='Note-list'>
             {notes
@@ -30,13 +30,13 @@ function NoteList({notes, searchQuery, currentID, highlightSearchTerms, pinNote,
                             <div className='Note-link-container'>
                                 <div>
                                     {highlightSearchTerms(note.title.substring(0,30), searchQuery)}{note.title.length>=30 ? '...' : null}
-                                    {note.etiquettes && note.etiquettes.map((etiquette, index) => (
+                                    {note.tags && note.tags.map((tagID) => (
                                         <span
-                                            key={index}
+                                            key={tagID}
                                             className='Etiquette'
-                                            style={{ backgroundColor: etiquette.color }}
+                                            style={{backgroundColor: tags.find(tag => tag.id === tagID).color}}
                                         >
-                                            {etiquette.name}
+                                            {tags.find(tag => tag.id === tagID).name}
                                         </span>
                                     ))}
                                 </div>
@@ -89,13 +89,13 @@ function NoteList({notes, searchQuery, currentID, highlightSearchTerms, pinNote,
                             <div className='Note-link-container'>
                                 <div>
                                     {highlightSearchTerms(note.title.substring(0,30), searchQuery)}{note.title.length>=30 ? '...' : null}
-                                    {note.etiquettes && note.etiquettes.map((etiquette, index) => (
+                                    {note.tags && note.tags.map((tagID) => (
                                         <span
-                                            key={index}
+                                            key={tagID}
                                             className='Etiquette'
-                                            style={{ backgroundColor: etiquette.color }}
+                                            style={{backgroundColor: tags.find(tag => tag.id === tagID).color}}
                                         >
-                                            {etiquette.name}
+                                            {tags.find(tag => tag.id === tagID).name}
                                         </span>
                                     ))}
                                 </div>

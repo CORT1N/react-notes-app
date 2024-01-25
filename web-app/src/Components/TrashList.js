@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-function TrashList({notes, searchQuery, currentID, highlightSearchTerms, pinNote, isDarkMode, checkNote, currentNotes}){
+function TrashList({notes, searchQuery, currentID, highlightSearchTerms, pinNote, isDarkMode, checkNote, currentNotes, tags}){
     return(
         <ol className='Note-list'>
             {currentNotes
@@ -20,13 +20,13 @@ function TrashList({notes, searchQuery, currentID, highlightSearchTerms, pinNote
                             <div className='Note-link-container'>
                                 <div>
                                     {highlightSearchTerms(note.title.substring(0,30), searchQuery)}{note.title.length>=30 ? '...' : null}
-                                    {note.etiquettes && note.etiquettes.map((etiquette, index) => (
+                                    {note.tags && note.tags.map((tagID) => (
                                         <span
-                                            key={index}
+                                            key={tagID}
                                             className='Etiquette'
-                                            style={{ backgroundColor: etiquette.color }}
+                                            style={{backgroundColor: tags.find(tag => tag.id === tagID).color}}
                                         >
-                                            {etiquette.name}
+                                            {tags.find(tag => tag.id === tagID).name}
                                         </span>
                                     ))}
                                 </div>
