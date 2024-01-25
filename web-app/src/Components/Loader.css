@@ -1,3 +1,31 @@
+.dark-mode .lds-hourglass {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    opacity: .25;
+}
+.dark-mode .lds-hourglass:after {
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 8px;
+    box-sizing: border-box;
+    border: 32px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-hourglass 1.2s infinite;
+}
+
+.dark-mode .lds-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .lds-hourglass {
     display: inline-block;
     position: relative;
@@ -13,8 +41,8 @@
     height: 0;
     margin: 8px;
     box-sizing: border-box;
-    border: 32px solid #fff;
-    border-color: #fff transparent #fff transparent;
+    border: 32px solid #cecece;
+    border-color: #cecece transparent #cecece transparent;
     animation: lds-hourglass 1.2s infinite;
 }
 @keyframes lds-hourglass {
@@ -37,4 +65,5 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-}   
+}
+

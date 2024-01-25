@@ -6,6 +6,7 @@ import Loader from './Components/Loader';
 import Aside from './Views/Aside'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import TrashNote from './Components/TrashNote';
 
 
 //  CYCLE DE VIE du composant App:
@@ -17,6 +18,7 @@ function App() {
   //déclarer l'état pour stocker les notes
   const [notes, setNotes] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isTrashViewEnabled, setIsTrashViewEnabled] = useState(false);
 
   const apiErrorToast = () => toast.error("Base de données indisponible.", {
     position: "top-right",
@@ -63,6 +65,8 @@ function App() {
         fetchNotes={fetchNotes}
         apiErrorToast={apiErrorToast}
         currentUser={currentUser}
+        isTrashViewEnabled={isTrashViewEnabled}
+        setIsTrashViewEnabled={setIsTrashViewEnabled}
       />
       <main className='Main'>
         {notes !== null ? (
@@ -71,6 +75,14 @@ function App() {
             <Route
               path="/notes/:id" 
               element={
+                isTrashViewEnabled ?
+                <TrashNote 
+                notes={notes}
+                fetchNotes={fetchNotes}
+                apiErrorToast={apiErrorToast}
+                setIsTrashViewEnabled={setIsTrashViewEnabled}
+                />
+                : 
                 <Note 
                   notes={notes}
                   fetchNotes={fetchNotes}

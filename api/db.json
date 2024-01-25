@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Initiation à React",
       "content": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum",
-      "date": "2024-01-14T12:52:12.765Z",
+      "date": "2024-01-25T09:14:53.210Z",
       "pinned": false,
       "checked": true,
       "etiquettes": [
@@ -16,13 +16,14 @@
           "name": "JS",
           "color": "purple"
         }
-      ]
+      ],
+      "inTrash": false
     },
     {
       "id": 2,
       "title": "Utilisation de json-server",
-      "content": "Bla blaaa",
-      "date": "2024-01-13T10:45:39.898Z",
+      "content": "Bla blaaaaaa",
+      "date": "2024-01-25T11:19:23.859Z",
       "pinned": false,
       "checked": false,
       "etiquettes": [
@@ -34,23 +35,26 @@
           "name": "FakeDB",
           "color": "red"
         }
-      ]
+      ],
+      "inTrash": false
     },
     {
       "title": "hello",
       "content": "i'm under the water",
       "id": 4,
-      "date": "2024-01-14T12:52:15.865Z",
+      "date": "2024-01-25T09:14:51.665Z",
       "pinned": false,
-      "checked": false
+      "checked": false,
+      "inTrash": true
     },
     {
       "title": "Initiation au format Markdown",
       "content": "# Titre 1\n\n* Allo ? \n* Le format est pris en charge, je ne l'ai juste pas stylisé.\n\n## Titre 2\n\n```js\nimport React from 'react'\nimport ReactDOM from 'react-dom'\nimport Markdown from 'react-markdown'\nimport rehypeHighlight from 'rehype-highlight'\n\nconst markdown = `\n# Your markdown here\n`\n\nReactDOM.render(\n  <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>,\n  document.querySelector('#content')\n)\n```\n\n### Titre 3\n\n* [ ] task list\n* [x] checked item\n",
-      "date": "2024-01-14T13:00:12.970Z",
+      "date": "2024-01-25T09:17:47.062Z",
       "pinned": true,
       "id": 5,
-      "checked": false
+      "checked": false,
+      "inTrash": false
     }
   ],
   "profile": {
