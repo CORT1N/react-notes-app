@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import CreateTagModal from './CreateTagModal';
 
 const style = {
   position: 'absolute',
@@ -56,7 +57,7 @@ export default function BasicModal({isDarkMode, notes, tags, note, apiErrorToast
             Libellés
           </Typography>
           {tags.map(tag => (
-            <div className='tagListItem'>
+            <div className='tagListItem' key={tag.id}>
                 <input
                     type='checkbox'
                     checked={note.tags.find(tagInList => tagInList === tag.id) ? true : false}
@@ -72,6 +73,10 @@ export default function BasicModal({isDarkMode, notes, tags, note, apiErrorToast
                 </span>
             </div> 
           ))}
+          <CreateTagModal
+            fetchTags={fetchTags}
+            apiErrorToast={apiErrorToast}
+          />
         </Box>
       </Modal>
     </div>
