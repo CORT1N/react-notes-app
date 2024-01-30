@@ -16,7 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({isDarkMode, notes, tags, note, apiErrorToast, saveNote}) {
+export default function BasicModal({isDarkMode, notes, tags, note, apiErrorToast, saveNote, fetchTags}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -30,6 +30,8 @@ export default function BasicModal({isDarkMode, notes, tags, note, apiErrorToast
                 note.tags.push(tagID);
             }
             await saveNote();
+            await fetchTags();
+
         }catch(e){
             console.error("Erreur à la modification du libellé - "+e);
             apiErrorToast();

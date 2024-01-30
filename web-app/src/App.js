@@ -107,6 +107,7 @@ function App() {
                   isDarkMode={isDarkMode}
                   setIsDarkMode={setIsDarkMode}
                   tags={tags}
+                  fetchTags={fetchTags}
                 />
               }
             />

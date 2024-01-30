@@ -9,7 +9,7 @@ import { useDebouncedEffect } from './useDebouncedEffect';
 import ReactMarkdown from 'react-markdown';
 import BasicModal from "./BasicModal";
 
-function Note({ notes, fetchNotes, apiErrorToast, isDarkMode, setIsDarkMode, tags }){
+function Note({ notes, fetchNotes, apiErrorToast, isDarkMode, setIsDarkMode, tags, fetchTags}){
     const { id } = useParams();
     const [note, setNote] = useState(notes.find(note => note.id === parseInt(id)));
     const [isSaved, setIsSaved] = useState(false);
@@ -125,6 +125,7 @@ function Note({ notes, fetchNotes, apiErrorToast, isDarkMode, setIsDarkMode, tag
                                 note={note}
                                 apiErrorToast={apiErrorToast}
                                 saveNote={saveNote}
+                                fetchTags={fetchTags}
                             />
                         </div>
                         <div className="Note-action">

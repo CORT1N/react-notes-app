@@ -39,7 +39,7 @@
     {
       "title": "Initiation au format Markdown",
       "content": "# Titre 1\n\n* Allo ? \n* Le format est pris en charge, je ne l'ai juste pas stylisé.\n\n## Titre 2\n\n```js\nimport React from 'react'\nimport ReactDOM from 'react-dom'\nimport Markdown from 'react-markdown'\nimport rehypeHighlight from 'rehype-highlight'\n\nconst markdown = `\n# Your markdown here\n`\n\nReactDOM.render(\n  <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>,\n  document.querySelector('#content')\n)\n```\n\n### Titre 3\n\n* [ ] task list\n* [x] checked item",
-      "date": "2024-01-25T13:54:15.127Z",
+      "date": "2024-01-30T16:11:58.702Z",
       "pinned": true,
       "id": 5,
       "checked": false,
